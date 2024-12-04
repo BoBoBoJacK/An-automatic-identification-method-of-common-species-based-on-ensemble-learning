@@ -40,25 +40,25 @@
 
 进入相应的文件夹（`Com/` 或 `All/`），执行以下命令训练模型：
 
-```bash
+```
 python train.py
-```bash
+```
 
 ### 3. 测试模型
 
 在训练完成后，使用以下命令对模型进行测试并生成评估结果：
 
-```bash
+```
 python test.py
-```bash
+```
 
 ### 4. 生成评估结果
 
 在测试完成后，在 test 目录下运行 ensemble.py 文件：
 
-```bash
+```
 python ensemble.py
-```bash
+```
 
 该操作将生成每个模型的混淆矩阵、metrics 文件和其他结果，并保存在 Com/ 和 ALL/ 文件夹中。
 注意:calculate.py 和 ensemble.py中需要根据实际情况更改参数，如物种总数和常见物种个数等
