@@ -60,8 +60,8 @@ python test.py
 python ensemble.py
 ```
 
-该操作将生成每个模型的混淆矩阵、metrics 文件和其他结果，并保存在 Com/ 和 ALL/ 文件夹中。
-注意:calculate.py 和 ensemble.py中需要根据实际情况更改参数，如物种总数和常见物种个数等
+该操作将生成每个模型的混淆矩阵、metrics 文件和其他结果，并保存在 Com/ 和 ALL/ 文件夹中。  
+## 注意:calculate.py 和 ensemble.py中需要根据实际情况更改参数，如物种总数和常见物种个数等
 
 参考
 [AutoGluon官方文档](https://auto.gluon.ai/stable/index.html)
