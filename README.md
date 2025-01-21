@@ -1,67 +1,68 @@
 # An Automatic Identification Method of Common Species Based on Ensemble Learning
 
-本实验使用了 **AutoGluon** 进行物种分类任务。若您尚未安装 **AutoGluon**，请前往官网下载并按照安装步骤进行安装：[AutoGluon 官方文档](https://auto.gluon.ai/stable/index.html)
+This experiment uses **AutoGluon** for the task of species classification. If you haven't installed **AutoGluon** yet, please go to the official website to download it and install it according to the installation steps: [AutoGluon Official Documentation](https://auto.gluon.ai/stable/index.html).
 
-## 数据集说明
+## Dataset Description
 
-本实验以 **CC 数据集** 为例，任务为物种分类。数据集中的物种被分为常见物种和稀有物种：
+This experiment takes the **CC Dataset** as an example, and the task is species classification. The species in the dataset are divided into common species and rare species:
 
-- **常见物种**：前 9 个物种
-- **稀有物种**：剩余的物种
+- **Common Species**: The first 9 species.
+- **Rare Species**: The remaining species.
 
-## 文件夹结构
+## Folder Structure
 
-本项目包含以下几个文件夹和文件：
+This project contains the following folders and files:
 
 ### 1. `Com/`
-此文件夹包含常见物种模型的相关代码：
+This folder contains the relevant code for the common species model:
 
-- `train.py`：用于训练常见物种模型的代码。
-- `test.py`：用于测试常见物种模型的代码。
-- `calculate.py`：生成常见物种模型的评估指标和混淆矩阵。
+- `train.py`: The code used to train the common species model.
+- `test.py`: The code used to test the common species model.
+- `calculate.py`: Generates the evaluation metrics and confusion matrix for the common species model.
 
 ### 2. `All/`
-此文件夹包含全物种模型的相关代码：
+This folder contains the relevant code for the all-species model:
 
-- `train.py`：用于训练全物种模型的代码。
-- `test.py`：用于测试全物种模型的代码。
-- `calculate.py`：生成全物种模型的评估指标和混淆矩阵。
+- `train.py`: The code used to train the all-species model.
+- `test.py`: The code used to test the all-species model.
+- `calculate.py`: Generates the evaluation metrics and confusion matrix for the all-species model.
 
 ### 3. `test/`
-此文件夹包含一个文件：`ensemble.py`。此文件实现集成学习代码，负责执行两个阶段的模型评估并生成相关结果。它将调用 `Com/calculate.py` 和 `All/calculate.py`，并生成混淆矩阵、评估指标以及结果文件。
+This folder contains one file: `ensemble.py`. This file implements the ensemble learning code and is responsible for performing the model evaluation in two stages and generating the relevant results. It will call `Com/calculate.py` and `All/calculate.py`, and generate the confusion matrix, evaluation metrics, and result files.
 
-## 使用说明
+## Usage Instructions
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
-请确保已安装 **AutoGluon** 和相关的 Python 依赖。如果尚未安装，请参考 [AutoGluon 官方文档](https://auto.gluon.ai/stable/index.html) 进行安装。
+Please ensure that **AutoGluon** and the relevant Python dependencies have been installed. If not, please refer to the [AutoGluon Official Documentation](https://auto.gluon.ai/stable/index.html) for installation.
 
-### 2. 训练模型
+### 2. Train the Model
 
-进入相应的文件夹（`Com/` 或 `All/`），执行以下命令训练模型：
+Enter the corresponding folder (`Com/` or `All/`), and execute the following command to train the model:
 
 ```
 python train.py
 ```
 
-### 3. 测试模型
+### 3. Test the Model
 
-在训练完成后，使用以下命令对模型进行测试并生成评估结果：
+After the training is completed, use the following command to test the model and generate the evaluation results:
 
 ```
 python test.py
 ```
 
-### 4. 生成评估结果
+### 4. Generate Evaluation Results
 
-在测试完成后，在 test 目录下运行 ensemble.py 文件：
+After the testing is completed, run the `ensemble.py` file in the `test` directory:
 
 ```
 python ensemble.py
 ```
 
-该操作将生成每个模型的混淆矩阵、metrics 文件和其他结果，并保存在 Com/ 和 ALL/ 文件夹中。  
-## 注意:calculate.py 和 ensemble.py中需要根据实际情况更改参数，如物种总数和常见物种个数等
+This operation will generate the confusion matrix, metrics file, and other results for each model, and save them in the `Com/` and `ALL/` folders.
 
-参考
-[AutoGluon官方文档](https://auto.gluon.ai/stable/index.html)
+## Note: In `calculate.py` and `ensemble.py`, parameters need to be changed according to the actual situation, such as the total number of species and the number of common species, etc.
+
+Reference
+[AutoGluon Official Documentation](https://auto.gluon.ai/stable/index.html) 
